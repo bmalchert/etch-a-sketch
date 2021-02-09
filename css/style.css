@@ -1,0 +1,14 @@
+#container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.square {
+  text-align: center;
+  vertical-align: middle;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
