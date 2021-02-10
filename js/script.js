@@ -31,15 +31,18 @@ function reset() {
 }
 
 function createSketchTable(dimension) {
+  
+  // setup the grid container
+  container.style['grid-template-rows'] = 'repeat( ' + dimension + ','
+      + '1fr)';
+  container.style['grid-template-columns'] = 'repeat( ' + dimension + ','
+      + '1fr)';
+
   for (let i = 0; i < dimension*dimension; i++) {
+
+    // create a colorable square element
     const square = document.createElement('div');
 
-    // create the dimension string
-    let dimensionString = CONTAINERSIZE / dimension - 2;
-    dimensionString += 'px';
-
-    square.style.width  = dimensionString;
-    square.style.height = dimensionString;  
     square.className = 'square'
     square.id = 'square' + i;
     square.addEventListener('mouseover', changeColor);
