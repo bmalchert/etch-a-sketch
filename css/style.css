@@ -1,9 +1,19 @@
+#big-container {
+  display: grid;
+  grid-template-columns: [tools] 250px [table] 650px;
+  grid-template-rows: [header] 100px [main] 650px;
+  grid-template-areas: 
+    "header header"
+    "tools table";
+}
 
 #container {
   border: 4px solid red;
   margin: auto;
   display: grid;
   background-color: red;
+
+  grid-area: table;
 }
 
 .square {
@@ -32,4 +42,9 @@ button {
   height: 50px;
   width: 100px;
 
+}
+
+#toolbox {
+  grid-area: tools;
+  place-self: end center;
 }
