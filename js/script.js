@@ -8,8 +8,12 @@ container.style.width  = CONTAINERSIZE + 'px';
 createSketchTable(dimension);
 
 // add reset button event listener
-const resetButton = document.querySelector('button');
+const resetButton = document.querySelector('#reset');
 resetButton.addEventListener('click', reset);
+
+// add clear button event listener
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', clearTable);
 
 function changeColor(e) {
   const square = document.querySelector(`#${e.target.id}`);
@@ -28,6 +32,12 @@ function reset() {
   } while (dimension > 100);
   deleteSketchTable();
   createSketchTable(dimension)
+}
+
+// create clear button event handler
+function clearTable() {
+  deleteSketchTable();
+  createSketchTable(dimension);
 }
 
 function createSketchTable(dimension) {
