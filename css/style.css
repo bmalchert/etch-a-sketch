@@ -5,6 +5,10 @@
   grid-template-areas: 
     "header header"
     "tools table";
+
+  width: 900px;
+  height: 750px;
+  margin: auto;
 }
 
 #container {
