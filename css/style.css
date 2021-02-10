@@ -50,5 +50,7 @@ button {
 
 #toolbox {
   grid-area: tools;
-  place-self: end center;
+  display: grid;
+
+  place-items: center center;
 }
