@@ -1,6 +1,6 @@
+
 #container {
-  width: 400px;
-  height: 400px;
+  margin: auto;
   display: flex;
   flex-flow: row wrap;
 }
@@ -8,7 +8,27 @@
 .square {
   text-align: center;
   vertical-align: middle;
+  background-color: white;
+  border-color: #c4c4c4;
   border-style: solid;
-  border-color: black;
   border-width: 1px;
+}
+
+.drawn {
+  text-align: center;
+  vertical-align: middle;
+  background-color: black;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#header {
+  float: right;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+
 }
