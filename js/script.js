@@ -22,22 +22,43 @@ function changeColor(e) {
 
 // create reset button event handler
 function reset() {
-  const squares = Array.from(document.querySelectorAll(".square.drawn"));
-  for (let i = 0; i < squares.length; i++) {
-    squares[i].className = 'square';
-  }
+  
 
   // Capture user input for dimension of sketch table. It has to be between
   // 1 and 100
+  let userInput;
   do {
-    dimension = dimension > 100 ? prompt("Enter a dimension less than 100") :
-                dimension < 1   ? prompt("Enter a dimension greater than 0") :
-                prompt("Enter dimension", dimension);
-    
-  } while (dimension > 100 || dimension < 1);
+    userInput = prompt(
+                'Enter dimension in range 1-100\n'
+              + 'or enter 0 or hit ESC to cancel.',
+                dimension);
+    console.log(userInput);
 
-  deleteSketchTable();
-  createSketchTable(dimension)
+    if (userInput == 0 || !userInput) {
+      userInput = 'cancel';
+    } else if (!Math.floor(userInput)) {
+      userInput = -1;
+    } else if (userInput < 1) {
+      dimension = 1;
+    } else if (userInput > 100) {
+      dimension = 100;
+    } else {
+      // Convert userInput to number and then converts to integer
+     dimension = Math.floor(userInput);
+     console.log('final else');
+    }
+
+  } while (userInput === -1);
+
+  if (userInput !== 'cancel') {
+    // const squares = Array.from(document.querySelectorAll(".square.drawn"));
+    // for (let i = 0; i < squares.length; i++) {
+    // squares[i].className = 'square';
+    // }
+
+    deleteSketchTable();
+    createSketchTable(dimension)
+  }
 }
 
 // create clear button event handler
