@@ -27,9 +27,15 @@ function reset() {
     squares[i].className = 'square';
   }
 
+  // Capture user input for dimension of sketch table. It has to be between
+  // 1 and 100
   do {
-    dimension = prompt("Enter dimension", dimension);
-  } while (dimension > 100);
+    dimension = dimension > 100 ? prompt("Enter a dimension less than 100") :
+                dimension < 1   ? prompt("Enter a dimension greater than 0") :
+                prompt("Enter dimension", dimension);
+    
+  } while (dimension > 100 || dimension < 1);
+
   deleteSketchTable();
   createSketchTable(dimension)
 }
