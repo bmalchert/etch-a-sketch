@@ -2,6 +2,10 @@ const container = document.querySelector('#container');
 
 // Setup the initial sketch table
 let dimension = 4;
+let drawColor = {
+  fill: 'black',
+  border: 'black'
+};
 const CONTAINERSIZE = 600;
 container.style.height = CONTAINERSIZE + 'px';
 container.style.width  = CONTAINERSIZE + 'px';
@@ -15,10 +19,14 @@ resetButton.addEventListener('click', reset);
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearTable);
 
-function changeColor(e) {
+// add red button event listener
+const redButton = document.querySelector('button#red');
+redButton.addEventListener('click', changeColor);
+
+function draw(e) {
   const square = document.querySelector(`#${e.target.id}`);
-  square.style.backgroundColor = 'black';
-  square.style.borderColor = 'black';
+  square.style.backgroundColor = drawColor.fill;
+  square.style.borderColor = drawColor.border;
 }
 
 // create reset button event handler
@@ -83,7 +91,7 @@ function createSketchTable(dimension) {
 
     square.className = 'square'
     square.id = 'square' + i;
-    square.addEventListener('mouseover', changeColor);
+    square.addEventListener('mouseover', draw);
   
     container.appendChild(square);
   }
@@ -94,4 +102,11 @@ function deleteSketchTable() {
   for (let i = 0; i < squares.length; i++) {
     container.removeChild(squares[i]);
   }
+}
+
+// Event handler for changing the drawing color
+function changeColor(e) {
+  const buttonPressed = document.querySelector(`#${e.target.id}`);
+  drawColor.fill = e.target.id;
+  drawColor.border = e.target.id;
 }
