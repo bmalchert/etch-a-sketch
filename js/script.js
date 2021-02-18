@@ -19,9 +19,11 @@ resetButton.addEventListener('click', reset);
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearTable);
 
-// add red button event listener
-const redButton = document.querySelector('button#red');
-redButton.addEventListener('click', changeColor);
+// add color buttons event listeners
+const colorButtons = Array.from(document.querySelectorAll('button.colorbutton'));
+for (let i = 0; i < colorButtons.length; i++) {
+  colorButtons[i].addEventListener('click', changeColor);
+}
 
 function draw(e) {
   const square = document.querySelector(`#${e.target.id}`);
