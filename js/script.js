@@ -27,6 +27,14 @@ for (let i = 0; i < colorButtons.length; i++) {
 
 function draw(e) {
   const square = document.querySelector(`#${e.target.id}`);
+
+  if (drawColor.fill === 'random') {
+    const randoColor = rando256();
+    square.style.backgroundColor = randoColor;
+    square.style.borderColor = randoColor;
+    return;
+  }
+
   square.style.backgroundColor = drawColor.fill;
   square.style.borderColor = drawColor.border;
 }
@@ -109,6 +117,20 @@ function deleteSketchTable() {
 // Event handler for changing the drawing color
 function changeColor(e) {
   const buttonPressed = document.querySelector(`#${e.target.id}`);
+
   drawColor.fill = e.target.id;
   drawColor.border = e.target.id;
+}
+
+function rando256() {
+  let colorString = 'rgb(';
+
+  colorString += Math.floor(Math.random() * 255);
+  colorString += ',';
+  colorString += Math.floor(Math.random() * 255);
+  colorString += ',';
+  colorString += Math.floor(Math.random() * 255);
+  colorString += ')';
+
+  return colorString
 }
