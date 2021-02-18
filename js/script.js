@@ -33,6 +33,9 @@ function draw(e) {
     square.style.backgroundColor = randoColor;
     square.style.borderColor = randoColor;
     return;
+  } else if (drawColor.fill === 'eraser') {
+    square.style.backgroundColor = 'white';
+    square.style.borderColor = '#c4c4c4';
   }
 
   square.style.backgroundColor = drawColor.fill;
