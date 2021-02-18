@@ -1,3 +1,7 @@
+html {
+	background-color: lightyellow;
+}
+
 #big-container {
   display: grid;
   grid-template-columns: [tools] 250px [table] 650px;
@@ -30,7 +34,10 @@
 }
 
 #header {
-  float: right;
+	grid-area: header;
+	font-size: larger;
+	font-family: sans;
+  text-align: center;
 }
 
 button {
