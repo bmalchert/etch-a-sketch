@@ -17,7 +17,8 @@ clearButton.addEventListener('click', clearTable);
 
 function changeColor(e) {
   const square = document.querySelector(`#${e.target.id}`);
-  square.className += ' drawn';
+  square.style.backgroundColor = 'black';
+  square.style.borderColor = 'black';
 }
 
 // create reset button event handler
