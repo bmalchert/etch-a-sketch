@@ -34,14 +34,19 @@
 }
 
 button {
-  height: 50px;
-  width: 100px;
-
+	height: 70px;
+	width: 90px;
+	margin: 8px;
+	border: black outset 3px;
+	padding: 0px;
+	font-size: large;
 }
 
 #toolbox {
-  grid-area: tools;
-  display: grid;
-
-  place-items: center center;
+	grid-area: tools;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	/* height: 500px; */
+	place-self: center end;
+	place-items: center;
 }
